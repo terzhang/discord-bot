@@ -2,9 +2,8 @@ import path from 'path';
 import { fileHandler } from '../utils';
 import { Client, fileType } from '../types';
 
-const func = (client: Client, reload: boolean) => {
-  console.log(path.resolve('./functions'));
-  const errors = fileHandler(
+const func = async (client: Client, reload: boolean) => {
+  const errors = await fileHandler(
     fileType.functions,
     path.resolve('./functions'),
     client,
@@ -13,7 +12,7 @@ const func = (client: Client, reload: boolean) => {
   if (!errors) {
     console.log('Functions built successfully');
   } else {
-    console.log('Errors: ' + errors);
+    console.log('Function errors: \n' + errors);
   }
 };
 
