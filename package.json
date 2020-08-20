@@ -1,5 +1,5 @@
 {
-  "name": "discord-bot-template",
+  "name": "discord-bot-ts",
   "version": "1.0.0",
   "description": "Boilerplate-code/template for discord bots",
   "main": "index.js",
@@ -8,14 +8,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/3chospirits/discord-bot-template.git"
+    "url": "git+https://github.com/terzhang/discord-bot.git"
   },
   "author": "",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/3chospirits/discord-bot-template/issues"
+    "url": "https://github.com/terzhang/discord-bot/issues"
   },
-  "homepage": "https://github.com/3chospirits/discord-bot-template#readme",
+  "homepage": "https://github.com/terzhang/discord-bot#readme",
   "dependencies": {
     "discord.js": "^12.2.0",
     "fs": "0.0.1-security",
