@@ -50,5 +50,5 @@ client.loadCmds(client, false);
 client.loadFunctions(client, false);
 client.loadEvents(client, false);
 
-export default bot;
 client.login(token);
+export default bot;

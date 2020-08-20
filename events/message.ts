@@ -14,6 +14,8 @@ async function runCommands(bot: Bot, message: Message) {
 
   if (!message.content.startsWith(prefix)) return;
 
+  // extract the command from message content
+  // e.g. with ".hello", the command is "hello"
   const args = message.content.slice(prefix.length).trim().split(/ +/g);
 
   const cmd = args.shift()?.toLowerCase();
