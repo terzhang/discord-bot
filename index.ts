@@ -35,17 +35,17 @@ client.functions = new discord.Collection();
 client.categories = fs.readdirSync('./commands/');
 
 /**
- * These functions are used to grab the modules in each corresponding folder
+ * These functions are used to grab the handler modules in each corresponding folder
  * whenever the loadxxx() functions are called, the cache will be cleared of the previous data
  * and the new data will be loaded into the collections so you can update code without restarting the
  * entire bot
  */
-client.loadCmds = (client, reload) =>
-  require(`./handlers/command`)(client, reload);
-client.loadFunctions = (client, reload) =>
-  require(`./handlers/function`)(client, reload);
-client.loadEvents = (client, reload) =>
-  require('./handlers/event.js')(client, reload, bot);
+client.loadCmds = async (client, reload) =>
+  (await import(`./handlers/command`)).default(client, reload);
+client.loadFunctions = async (client, reload) =>
+  (await import(`./handlers/function`)).default(client, reload);
+client.loadEvents = async (client, reload) =>
+  (await import('./handlers/event.js')).default(client, reload, bot);
 client.loadCmds(client, false);
 client.loadFunctions(client, false);
 client.loadEvents(client, false);
