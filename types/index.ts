@@ -46,10 +46,12 @@ type Aliases = Collection<string, string>;
 type Events = Collection<string, Event>;
 type Functions = Collection<string, Function>;
 
+type Loaders = (client: Client, reload: boolean) => void;
+
 export interface Client extends client {
-  loadCmds: (client: any, reload: any) => any;
-  loadFunctions: (client: any, reload: any) => any;
-  loadEvents: (client: any, reload: any) => any;
+  loadCmds: Loaders;
+  loadFunctions: Loaders;
+  loadEvents: Loaders;
   commands: Commands;
   aliases: Aliases;
   events: Events;
