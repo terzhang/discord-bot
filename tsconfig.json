@@ -3,6 +3,7 @@
     "target": "es6",
     "module": "commonjs",
     "sourceMap": true,
+    // "lib": ["es6", "es2015", "esnext"],
     "outDir": "./dist",
     "moduleResolution": "node",
     "declaration": false,
@@ -22,7 +23,8 @@
     "experimentalDecorators": true,
     "skipLibCheck": true,
     "baseUrl": ".",
-    "rootDir": "."
+    "rootDir": ".",
+    "typeRoots": ["./node_modules/@types"]
   },
   "exclude": ["node_modules"],
   "include": ["./**/*.tsx", "./**/*.ts"]

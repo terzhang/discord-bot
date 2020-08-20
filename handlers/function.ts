@@ -3,9 +3,10 @@ import { fileHandler } from '../utils';
 import { Client, fileType } from '../types';
 
 const func = (client: Client, reload: boolean) => {
+  console.log(path.resolve('./functions'));
   const errors = fileHandler(
     fileType.functions,
-    path.resolve('../functions'),
+    path.resolve('./functions'),
     client,
     reload
   );

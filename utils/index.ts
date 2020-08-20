@@ -24,7 +24,7 @@ export const fileHandler = async (
   );
   // take each js/ts file in the directory...
   for (let file of dir) {
-    const resolvePath = path.join('../', dirPath, file);
+    const resolvePath = path.join(dirPath, file);
 
     if (reload) delete require.cache[require.resolve(resolvePath)];
 

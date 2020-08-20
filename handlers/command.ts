@@ -9,7 +9,7 @@ const cmd = (client: Client, reload: boolean) => {
   readdirSync('./commands/').forEach(async (dir) => {
     errors = await fileHandler(
       fileType.commands,
-      path.resolve(`../commands/${dir}`),
+      path.resolve(`./commands/${dir}`),
       client,
       reload
     );
