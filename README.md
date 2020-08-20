@@ -1,4 +1,4 @@
-# discord-bot-template-ts
+# Discord Bot TypeScript Template
 
 This project is based on [discord-bot-template](https://github.com/3chospirits/discord-bot-template) by [3chospirits](https://github.com/3chospirits) but fully converted to TypeScript.
 
