@@ -16,7 +16,7 @@ const cmd = (client: Client, reload: boolean) => {
   });
   if (!errors) {
     console.log('Commands: built successfully');
-  } else console.log('Errors:\n' + errors);
+  } else console.log('Command error:\n' + errors);
 };
 
 /* let buildMsg = ''
