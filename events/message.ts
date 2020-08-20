@@ -60,7 +60,6 @@ async function runCommands(bot: Bot, message: Message) {
 
 const message: Event = {
   name: 'message',
-  /* @ts-ignore */
   func: runAll,
 };
 export default message;

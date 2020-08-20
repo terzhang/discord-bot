@@ -10,14 +10,6 @@ export interface Command {
   run: (bot: Bot) => Promise<any>;
 }
 
-/* type FunctionName = { name: string };
-type FunctionType = (...args: any) => any;
-type f<T> = FunctionName & Record<Exclude<keyof T, keyof FunctionName>, FunctionType>;
-
-const func = <T extends f<T>>(arg: T) => {
-  console.log(arg)
-}  */
-
 export interface Function {
   name: string;
   response: (
@@ -30,13 +22,11 @@ export interface Function {
   autoAlign: (align: any[], char?: string, lock?: number) => string;
 }
 
-// type ReadyEvent = (bot: Bot) => void;
-// type MessageEvent = (bot: Bot, message: Message) => void;
+export type ReadyEvent = (bot: Bot) => void;
+export type MessageEvent = (bot: Bot, message: Message) => void;
 export type Event = {
   name: string;
-
-  // ReadyEvent & MessageEvent; // these two are overloading methods
-  func: ((bot: Bot, message: Message) => void) & ((bot: Bot) => void);
+  func: ReadyEvent | MessageEvent;
 };
 
 /** a collection of key-value with key is a string,
