@@ -45,7 +45,7 @@ client.loadCmds = async (client, reload) =>
 client.loadFunctions = async (client, reload) =>
   (await import(`./handlers/function`)).default(client, reload);
 client.loadEvents = async (client, reload) =>
-  (await import('./handlers/event.js')).default(client, reload, bot);
+  (await import('./handlers/event')).default(client, reload, bot);
 client.loadCmds(client, false);
 client.loadFunctions(client, false);
 client.loadEvents(client, false);
