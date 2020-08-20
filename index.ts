@@ -1,25 +1,10 @@
 import discord from 'discord.js';
 import config from './config';
 import fs from 'fs';
+import { Bot, Client } from './types';
 const { prefix, token } = config;
 
-type Commands = discord.Collection<unknown, unknown>;
-type Aliases = discord.Collection<unknown, unknown>;
-type Events = discord.Collection<unknown, unknown>;
-type Functions = discord.Collection<unknown, unknown>;
-
-interface Client extends discord.Client {
-  loadCmds?: (client: any, reload: any) => any;
-  loadFunctions?: (client: any, reload: any) => any;
-  loadEvents?: (client: any, reload: any) => any;
-  commands?: Commands;
-  aliases?: Aliases;
-  events?: Events;
-  functions?: Functions;
-  categories?: string[];
-}
-
-const client: Client = new discord.Client({ disableMentions: 'everyone' }); //remove the parameters being passed into
+const client = new discord.Client({ disableMentions: 'everyone' }) as Client; //remove the parameters being passed into
 
 /**
  * If you need to use other databases or apis that require credentials,
@@ -36,7 +21,7 @@ const client: Client = new discord.Client({ disableMentions: 'everyone' }); //re
  *      https://firebase.google.com/docs/firestore https://www.mongodb.com/
  */
 
-let bot = { client, config, prefix };
+const bot = { client, config, prefix } as Bot;
 /**
  * These add commands, aliases, events, and functions to the client object
  * Discord Collections work like a Map/Dictionary Object
