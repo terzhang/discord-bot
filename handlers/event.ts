@@ -25,35 +25,6 @@ function initEvents(client: Client, bot: Bot) {
       console.error(err);
     }
   });
-
-  // client.on("channelCreate", (channel)=>{
-  // 	try {
-  // 		client.events.get("channelCreate").func(bot, channel);
-  // 	} catch (err) {
-  // 		console.error(err);
-  // 	}
-  // });
-  // client.on("channelDelete", (channel)=>{
-  // 	try {
-  // 		client.events.get("channelDelete").func(bot, channel);
-  // 	} catch (err) {
-  // 		console.error(err);
-  // 	}
-  // });
-  // client.on("guildCreate", (guild)=>{
-  // 	try{
-  // 		client.events.get("guildCreate").func(bot, guild);
-  // 	} catch (err){
-  // 		console.log(err)
-  // 	}
-  // })
-  // client.on("guildDelete", (guild)=>{
-  // 	try{
-  // 		client.events.get("guildDelete").func(bot, guild);
-  // 	} catch (err){
-  // 		console.log(err)
-  // 	}
-  // })
 }
 
 const event = (client: Client, reload: boolean, bot: Bot) => {

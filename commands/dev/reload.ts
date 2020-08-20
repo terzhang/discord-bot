@@ -8,11 +8,11 @@ const reload = {
   category: 'dev',
   adminOnly: true,
   description: 'reloads the bot',
-  run: async (bot: Bot) => {
+  run: (bot: Bot) => {
     const { client, message /* , config */ } = bot;
-    await client.loadCmds(client, true); //reload is true
-    await client.loadEvents(client, true);
-    await client.loadFunctions(client, true);
+    client.loadCmds(client, true); //reload is true
+    client.loadEvents(client, true);
+    client.loadFunctions(client, true);
 
     const functions = client.functions.get('functions')?.autoAlign([
       [`\`${client.commands.size}\``, `Commands`],
