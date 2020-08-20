@@ -10,7 +10,13 @@ const run = async (bot: Bot) => {
   }
 
   let code = message.content.replace(`${prefix}eval`, '').trim();
-  code = code.replace(/(^\`{3}js(\n|\s)*)|((\n|\s)*\`{3}$)/g, ''); //allows the usage of the js code block in discord (```js...```)
+  // check if it's in the right format
+  if (/(^\`{3}js(\n|\s)*).+((\n|\s)*\`{3}$)/g.test(code)) {
+    code = code.replace(/(^\`{3}js(\n|\s)*)|((\n|\s)*\`{3}$)/g, ''); //allows the usage of the js code block in discord (```js...```)
+  } else {
+    await message.channel.send('Invalid code block.');
+    return;
+  }
 
   // TODO: using eval is dangerous, make it safe
   const result = new Promise((resolve, _reject) => resolve(eval(code)));
@@ -26,7 +32,7 @@ const run = async (bot: Bot) => {
       }
       message.channel.send(output.substring(0, 1900), {
         //cuts response message short of discord message limit of 2000 chars
-        code: 'ts',
+        code: 'js',
       });
     })
     .catch((err: Error) => {
@@ -37,7 +43,7 @@ const run = async (bot: Bot) => {
       }
 
       message.channel.send(err, {
-        code: 'ts',
+        code: 'js',
       });
     });
 };
