@@ -22,11 +22,11 @@ export interface Function {
   autoAlign: (align: any[], char?: string, lock?: number) => string;
 }
 
-export type ReadyEvent = (bot: Bot) => void;
-export type MessageEvent = (bot: Bot, message: Message) => void;
+// export type ReadyEvent = (bot: Bot) => void;
+// export type MessageEvent = (bot: Bot, message?: Message) => void;
 export type Event = {
   name: string;
-  func: ReadyEvent | MessageEvent;
+  func: (bot: Bot, message?: Message) => void;
 };
 
 /** a collection of key-value with key is a string,
