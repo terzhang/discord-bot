@@ -24,9 +24,9 @@ const reload = {
     const embedded = new Discord.MessageEmbed()
       .setColor('#8DC685')
       .setTitle('Bot Reload Complete')
-      .setDescription(functions);
+      .setDescription(functions || 'No functions found');
 
-    message.channel.send(embedded);
+    message.channel.send({embeds : [embedded]});
   },
 };
 export default reload;

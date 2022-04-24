@@ -21,11 +21,12 @@ async function response(
   //replies an error message to user
   var embed = new MessageEmbed()
     .setTitle(ok ? 'Success!' : 'Error!')
-    .setColor(ok ? '#00ff00' : 'ff0000') //change the colors here
+    .setColor(ok ? '#00ff00' : '#ff0000') //change the colors here
     .setDescription(`**${ok ? '`✅` ' : '`❌` '}** ${desc}`);
-  const m = await message.channel.send(embed);
+  const m = await message.channel.send({embeds: [embed]});
   if (!noDelete) {
-    m.delete({ timeout: 5000 });
+    // m.delete({ timeout: 5000 });
+    setTimeout(() => m.delete(), 5000);
   }
 }
 /**

@@ -2,8 +2,10 @@
 import { Message } from 'discord.js';
 import { Bot, Event } from '../types';
 
-function runAll(bot: Bot, message: Message): void {
-  runCommands(bot, message);
+function runAll(bot: Bot, message?: Message): void {
+  if (message) {
+    runCommands(bot, message);
+  }
 }
 
 // Message typing: https://github.com/discordjs/discord.js/blob/master/typings/index.d.ts#L944
