@@ -38,11 +38,15 @@ function getAll(client: Client, message: Message, prefix: string) {
     embedded.addField(b[0], b[1], true);
   });
   message.channel.send(
-    embedded.setFooter(
-      `Use ${prefix}help <command> for more info on a specific command\n[Command count: ` +
-        client.commands.array().length +
+    {
+      embeds: [
+        embedded.setFooter(
+          `Use ${prefix}help <command> for more info on a specific command\n[Command count: ` +
+          client.commands.size +
         ']'
-    )
+        )
+      ]
+    }
   );
 }
 function getCMD(client: Client, message: Message, input: string) {
@@ -59,7 +63,7 @@ function getCMD(client: Client, message: Message, input: string) {
     }
     // still no command found
     if (!cmd) {
-      return message.channel.send(embed.setColor('RED').setDescription(info));
+      return message.channel.send({embeds: [ embed.setColor('RED').setDescription(info)]});
     }
   }
 
@@ -78,7 +82,7 @@ function getCMD(client: Client, message: Message, input: string) {
     embed.setFooter(`Syntax: <> = required, [] = optional`);
   }
 
-  return message.channel.send(embed.setColor('GREEN').setDescription(info));
+  return message.channel.send({embeds: [ embed.setColor('GREEN').setDescription(info) ]});
 }
 
 const help: Command & { usage: string } = {

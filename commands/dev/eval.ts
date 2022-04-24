@@ -30,10 +30,9 @@ const run = async (bot: Bot) => {
       if (output.includes(message.client.token)) {
         output = output.replace(message.client.token, 'TOK3N'); //replaces the token
       }
-      message.channel.send(output.substring(0, 1900), {
+      message.channel.send(output.substring(0, 1900)
         //cuts response message short of discord message limit of 2000 chars
-        code: 'js',
-      });
+      );
     })
     .catch((err: Error) => {
       let outputError = err.toString();
@@ -42,9 +41,7 @@ const run = async (bot: Bot) => {
         outputError = outputError.replace(message.client.token, 'T0K3N'); //replaces the token
       }
 
-      message.channel.send(err, {
-        code: 'js',
-      });
+      message.channel.send(outputError);
     });
 };
 
